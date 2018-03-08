@@ -13,3 +13,4 @@ mongod //para iniciar o servico
 mongo //para iniciar o banco
 
 
+como rodar script no mongo (de fora) node populatedb.js mongodb://127.0.0.1:27017/local_library
