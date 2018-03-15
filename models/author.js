@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var moment = require('moment');
 var AuthorSchema = new Schema({
     first_name: {type: String, required: true, max: 100},
     family_name: {type: String, required: true, max: 100},
@@ -24,5 +25,10 @@ AuthorSchema
 
 });
 
+AuthorSchema
+.virtual('due_back_formatted')
+.get(function(){
+  return moment(this.due_back).format('MMMM Do, YYYY');
+});
 // Export model
 module.exports = mongoose.model('Author', AuthorSchema);
